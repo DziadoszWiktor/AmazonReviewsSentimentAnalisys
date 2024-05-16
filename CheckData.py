@@ -16,8 +16,11 @@ def check_csv(filename):
         else:
             sentiment = "Neutral"
         sentiment_counts[sentiment] += 1
-        # print(row['Text'] + ' ---- ' + sentiment)
         
+    print(f'Sentiment count based on stars in file: {filename}')    
     for sentiment, count in sentiment_counts.items():
         print(f"{sentiment}: {count}")
+        
+check_csv('./results/reviews_1.csv')
+check_csv('./results/reviews_2.csv')
         

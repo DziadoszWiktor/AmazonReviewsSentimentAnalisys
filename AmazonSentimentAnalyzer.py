@@ -27,13 +27,21 @@ class AmazonSentimentAnalyzer:
 
     def analyze_sentiment(self, input_csv, output_csv):
         df = pd.read_csv(input_csv)
+        
+        df.dropna(subset=['Stars','Description'], inplace=True)
+        df = df[df['Description'].str.strip() != '']
+        
         df['Sentiment'] = self.predict_sentiment_batch(df['Description'])
         
         sentiment_counts = df['Sentiment'].value_counts()
         sentiment_counts_dict = sentiment_counts.to_dict()
+        
         print("Sentiment Counts:")
         for sentiment, count in sentiment_counts_dict.items():
             print(f"{sentiment}: {count}")
+    
+        columns = ['Stars', 'Sentiment', 'Description']
+        df = df[columns]
         
         df.to_csv(output_csv, index=False)
         
