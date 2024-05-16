@@ -3,7 +3,8 @@ from AmazonSentimentAnalyzer import AmazonSentimentAnalyzer
 
 def main():
     
-    reviews_url = ['https://www.amazon.com/DECKER-Nonstick-Reversible-Stainless-G48TD/product-reviews/B000063XH7', 'https://www.amazon.com/LtYioe-Colorful-Humidifier-Personal-Shut-Off/product-reviews/B08FBP26RL/']
+    # reviews_url = ['https://www.amazon.com/DECKER-Nonstick-Reversible-Stainless-G48TD/product-reviews/B000063XH7', 'https://www.amazon.com/LtYioe-Colorful-Humidifier-Personal-Shut-Off/product-reviews/B08FBP26RL/']
+    reviews_url = ['https://www.amazon.com/Google-Pixel-Pro-Smartphone-Telephoto/product-reviews/B0CGTP3NSH', 'https://www.amazon.com/SAMSUNG-Smartphone-Unlocked-Android-Titanium/product-reviews/B0CMDM65JH']
     
     num = 1
     for url in reviews_url:

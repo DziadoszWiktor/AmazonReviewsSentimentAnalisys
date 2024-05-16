@@ -49,7 +49,7 @@ model.add(Dense(32, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(3, activation='softmax'))
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-model.summary()
+
 
 # Train the model
 model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_test, y_test))
@@ -60,6 +60,7 @@ print("Accuracy:", accuracy_score(np.argmax(y_test, axis=-1), y_pred))
 
 
 # Save the trained model
+model.summary()
 model.save('models/sentiment_analysis_model.h5')
 with open('models/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
