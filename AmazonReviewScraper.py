@@ -23,7 +23,7 @@ USER_AGENTS = [
 ]
 
 class AmazonReviewScraper:
-    def __init__(self, reviews_url, len_page=3):
+    def __init__(self, reviews_url, len_page=10):
         self.reviews_url = reviews_url
         self.len_page = len_page
         self.headers = {
@@ -48,8 +48,6 @@ class AmazonReviewScraper:
             response = requests.get(self.reviews_url, headers=self.headers, params=params)  # Update here
             soup = BeautifulSoup(response.text, 'lxml')
             soups.append(soup)
-            time.sleep(random.randint(2, 10))
-            print(page_no)
         return soups
     
     def _get_reviews(self, html_data):
